@@ -7,5 +7,14 @@ use App\Http\Controllers\Controller;
 
 class SearchListController extends Controller
 {
-    //
+
+    /**
+     * 搜索结果列表页
+     * @param Request $request
+     */
+    public function searchList(Request $request){
+
+    }
+
+    
 }

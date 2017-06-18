@@ -41,7 +41,7 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWechatRoutes();
 
-        //
+        $this->mapReadRoutes();
     }
 
     /**
@@ -87,6 +87,17 @@ class RouteServiceProvider extends ServiceProvider
             'prefix' => 'wechat',
         ], function ($router) {
             require base_path('routes/wechat.php');
+        });
+    }
+
+    protected function mapReadRoutes()
+    {
+        Route::group([
+            'middleware' => 'web',
+            'namespace' => $this->namespace.'\\Read',
+            'prefix' => 'read',
+        ], function ($router) {
+            require base_path('routes/read.php');
         });
     }
 }
