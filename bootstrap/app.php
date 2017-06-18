@@ -63,6 +63,4 @@ $env = $app->detectEnvironment(function () use ($app) {
     }
 });
 
-
-
 return $app;
