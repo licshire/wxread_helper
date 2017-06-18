@@ -178,6 +178,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        //第三方服务提供者
+        Overtrue\LaravelWechat\ServiceProvider::class,
+
     ],
 
     /*
@@ -224,6 +227,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        'EasyWeChat' => Overtrue\LaravelWechat\Facade::class,
 
     ],
 

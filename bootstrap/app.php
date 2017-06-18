@@ -51,5 +51,18 @@ $app->singleton(
 | from the actual running of the application and sending responses.
 |
 */
+$env = $app->detectEnvironment(function () use ($app) {
+    $environmentPath = __DIR__ . '/../.env';
+    $setEnv = trim(file_get_contents($environmentPath));
+    $env_str = ".env.{$setEnv}";
+
+    if(file_exists(dirname($environmentPath).'/'.$env_str)){
+        $app->loadEnvironmentFrom($env_str);
+    }else{
+        $app->loadEnvironmentFrom('.env.release');  //线上环境
+    }
+});
+
+
 
 return $app;
