@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Read;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Utils\WereadSDK;
+use App\Http\Models\Books;
 
 class BookController extends Controller
 {
@@ -12,7 +14,33 @@ class BookController extends Controller
      * @param Request $request
      */
     public function detail(Request $request){
-        
+        //先从数据库获取数据 如果有则直接返回 如果没有则存入数据库,再返回
+        $book_ins = new Books;
+        $book_info = $book_ins->getBook(['bookid'=>$request->bookid]);
+        if(empty($book_info)){
+            $book_from_weread = WereadSDK::getBookDetail($request->bookid);
+            $book_info = [
+                'bookid' => $book_from_weread['bookid'],
+                'title' => $book_from_weread['title'],
+                'author' => $book_from_weread['author'],
+                'price' => $book_from_weread['price'],
+                'status' => $book_from_weread['bookStatus'],
+                'original_price' => $book_from_weread['originalPrice'],
+                'isbn' => $book_from_weread['isbn'],
+                'publisher' => $book_from_weread['publisher'],
+                'publish_time' => $book_from_weread['publishTime'],
+                'category' => $book_from_weread['category'],
+                'source' => $book_from_weread['source'],
+                'cover' => $book_from_weread['cover'],
+                'intro' => $book_from_weread['intro'],
+                'total_words' => $book_from_weread['totalWords'],
+                'publish_price' => $book_from_weread['publishPrice'],
+                'data' => json_encode($book_from_weread)
+            ];
+            $book_ins->insertBook($book_info);
+        }
+        return $book_info;
+
     }
 
     /**
