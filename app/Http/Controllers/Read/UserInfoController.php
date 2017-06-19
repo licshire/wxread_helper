@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Read;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Utils\JsonFactory;
 
 class UserController extends Controller
 {
@@ -13,6 +14,8 @@ class UserController extends Controller
      * @param Request $request
      */
     public function index(Request $request){
-
+        $json_factory = JsonFactory::getInstance();
+        
+        return response()->json([]);
     }
 }

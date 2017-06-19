@@ -23,7 +23,7 @@ class Books extends Model
      */
     public function insertBook($data){
         $ins = Books::create($data);
-        if(!$ins){
+        if($ins === false){
             //todo 统一处理exception行为
             throw new \Exception("add model failed");
         }

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Utils\WereadSDK;
 use App\Http\Models\Books;
+use App\Http\Utils\JsonFactory;
+use Illuminate\Support\Facades\Response;
 
 class BookController extends Controller
 {
@@ -15,6 +17,7 @@ class BookController extends Controller
      * @param Request $request
      */
     public function detail(Request $request){
+        $json_factory = JsonFactory::getInstance();
         //先从数据库获取数据 如果有则直接返回 如果没有则存入数据库,再返回
         $book_id = $request->bookid;
         $book_ins = new Books;
@@ -50,8 +53,8 @@ class BookController extends Controller
             $book_ins->insertBook($book_info);
             $book_info['is_subscribe'] = UserSubscribe::NOT_SUBSCRIBE;
         }
-        return $book_info;
-
+        $json_factory->set_data($book_info);
+        return response()->json($json_factory->all_body());
     }
 
     /**
@@ -59,6 +62,13 @@ class BookController extends Controller
      * @param Request $request
      */
     public function subscribe(Request $request){
-
+        $json_factory = JsonFactory::getInstance();
+        $sub_ins = new UserSubscribe;
+        $data = [
+            'uid' => session('uid'),
+            'bookid' => $request->bookid
+        ];
+        $sub_ins->insertSubscribe($data);
+        return response()->json($json_factory->all_body());
     }
 }

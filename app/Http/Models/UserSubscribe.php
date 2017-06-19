@@ -39,7 +39,7 @@ class UserSubscribe extends Model
      */
     public function updateSubscribe($condition, $data){
         $ins = UserSubscribe::where($condition)->update($data);
-        if(!$ins){
+        if($ins === false){
             throw new \Exception("update model failed");
         }
     }
