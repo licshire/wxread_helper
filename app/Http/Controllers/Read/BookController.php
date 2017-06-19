@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Read;
 
+use App\Http\Models\UserSubscribe;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Utils\WereadSDK;
@@ -15,10 +16,19 @@ class BookController extends Controller
      */
     public function detail(Request $request){
         //先从数据库获取数据 如果有则直接返回 如果没有则存入数据库,再返回
+        $book_id = $request->bookid;
         $book_ins = new Books;
-        $book_info = $book_ins->getBook(['bookid'=>$request->bookid]);
+        $book_info = $book_ins->getBook(['bookid'=>$book_id]);
+        $sub_ins = new UserSubscribe;
+        $sub_info = $sub_ins->getSubscribe(['uid'=>session('uid'), 'bookid'=>$book_id]);
+        if(empty($sub_info)){
+            $sub_info->is_subscribe = UserSubscribe::NOT_SUBSCRIBE;
+        }else{
+            $sub_info->is_subscribe = UserSubscribe::IS_SUBSCRIBE;
+        }
+
         if(empty($book_info)){
-            $book_from_weread = WereadSDK::getBookDetail($request->bookid);
+            $book_from_weread = WereadSDK::getBookDetail($book_id);
             $book_info = [
                 'bookid' => $book_from_weread['bookid'],
                 'title' => $book_from_weread['title'],
@@ -38,6 +48,7 @@ class BookController extends Controller
                 'data' => json_encode($book_from_weread)
             ];
             $book_ins->insertBook($book_info);
+            $book_info['is_subscribe'] = UserSubscribe::NOT_SUBSCRIBE;
         }
         return $book_info;
 
