@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Read;
 
+use App\Http\Models\BookHis;
 use App\Http\Models\UserSubscribe;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -53,6 +54,11 @@ class BookController extends Controller
             $book_ins->insertBook($book_info);
             $book_info['is_subscribe'] = UserSubscribe::NOT_SUBSCRIBE;
         }
+        //查找书籍的历史价格情况
+        $book_his = $book_ins->getBookHis(['bookid'=>$book_id]);
+        $book_his_ins = new BookHis;
+        $book_his_ins->getBookHis(['bookid'=>$book_id]);
+        $book_info['book_his'] = $book_his;
         $json_factory->set_data($book_info);
         return response()->json($json_factory->all_body());
     }

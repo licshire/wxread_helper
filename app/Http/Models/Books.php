@@ -48,4 +48,13 @@ class Books extends Model
     public function getBook($condition, $column=['*']){
         return Books::where($condition)->first($column);
     }
+
+
+    public function bookHis(){
+        return $this->hasMany('App\Http\Models\BookHis', 'bookid', 'bookid');
+    }
+
+    public function getBookHis($condition){
+        return Books::where($condition)->bookHis;
+    }
 }
