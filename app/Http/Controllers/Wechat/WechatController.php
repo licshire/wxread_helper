@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Wechat;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Log;
+use EasyWeChat\Foundation\Application;
 
 class WechatController extends Controller
 {
@@ -46,5 +47,18 @@ class WechatController extends Controller
         Log::info('return response.');
 
         return $wechat->server->serve();
+    }
+
+
+    public function demo(Application $wechat)
+    {
+        $menu = $wechat->menu;
+        dd($menu);
+        $menus = $menu->current();
+
+        // $wechat 则为容器中 EasyWeChat\Foundation\Application 的实例
+        //$wechatServer = EasyWeChat::server(); // 服务端
+        //$wechatUser = EasyWeChat::user(); // 用户服务
+        // ... 其它同理
     }
 }
