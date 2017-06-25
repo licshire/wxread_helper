@@ -47,8 +47,4 @@ class WechatController extends Controller
 
         return $wechat->server->serve();
     }
-
-    public function demo(Request $request){
-        return 222;
-    }
 }
