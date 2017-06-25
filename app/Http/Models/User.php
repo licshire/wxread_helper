@@ -20,7 +20,7 @@ class User extends Model
 
     public function wxUser()
     {
-        return $this->hasOne('App\Http\Models\WxUser', 'openid');
+        return $this->hasOne('App\Http\Models\WxUser', 'openid', 'openid');
     }
 
     /**
