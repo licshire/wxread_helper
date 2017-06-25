@@ -53,7 +53,9 @@ class WechatController extends Controller
     public function demo(Application $wechat)
     {
         $menu = $wechat->menu;
-        $menus = $menu->current();
+        $menus = $menu->all();
+
+        //$menus = $menu->current();
         dd($menu);
 
 
