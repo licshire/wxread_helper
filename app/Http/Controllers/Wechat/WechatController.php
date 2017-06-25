@@ -53,8 +53,9 @@ class WechatController extends Controller
     public function demo(Application $wechat)
     {
         $menu = $wechat->menu;
-        dd($menu);
         $menus = $menu->current();
+        dd($menu);
+
 
         // $wechat 则为容器中 EasyWeChat\Foundation\Application 的实例
         //$wechatServer = EasyWeChat::server(); // 服务端
