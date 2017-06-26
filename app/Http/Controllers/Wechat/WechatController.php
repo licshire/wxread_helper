@@ -50,18 +50,29 @@ class WechatController extends Controller
     }
 
 
-    public function demo(Application $wechat)
+    public function demo(Request $request)
     {
-        $menu = $wechat->menu;
-        $menus = $menu->all();
-
-        //$menus = $menu->current();
-        dd($menu);
+        $app = app('wechat');
+        $menu = $app->menu;
+        $buttons = [
+            [
+                "type"=>"view",
+                "name"=>"进入课堂",
+                "url"=>"http://read.no13bus.com/wechat/test"
+            ],
+        ];
+        $menu->destroy();
+        $menu->add($buttons);
+        return "OK";
 
 
         // $wechat 则为容器中 EasyWeChat\Foundation\Application 的实例
         //$wechatServer = EasyWeChat::server(); // 服务端
         //$wechatUser = EasyWeChat::user(); // 用户服务
         // ... 其它同理
+    }
+
+    public function test(Request $request){
+        return "test...";
     }
 }

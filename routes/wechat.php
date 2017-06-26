@@ -13,3 +13,4 @@
 
 Route::any('serve', 'WechatController@serve');
 Route::any('demo', 'WechatController@demo');
+Route::any('test', 'WechatController@test');
