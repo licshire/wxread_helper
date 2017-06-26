@@ -17,7 +17,12 @@ class WechatController extends Controller
         $wechat->server->setMessageHandler(function($message){
             switch ($message->MsgType) {
                 case 'event':
-                    return '收到事件消息';
+                    if($message->Event == 'scancode_push'){
+                        return $message->ScanCodeInfo->ScanResult;
+                    }else{
+                        return '收到事件消息';
+                    }
+
                     break;
                 case 'text':
                     return '收到文字消息';
