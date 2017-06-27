@@ -17,8 +17,10 @@ class WechatController extends Controller
         $wechat->server->setMessageHandler(function($message){
             switch ($message->MsgType) {
                 case 'event':
-                    if($message->Event == 'scancode_push'){
-                        return $message->ScanCodeInfo->ScanResult;
+                    if($message->Event == 'scancode_waitmsg'){
+                        //https://api.douban.com/v2/book/isbn/9787550266094 查书号的api
+                        Log::info(json_encode($message['ScanCodeInfo']['ScanResult']));
+                        return $message['ScanCodeInfo']['ScanResult'];
                     }else{
                         return '收到事件消息';
                     }
@@ -67,7 +69,7 @@ class WechatController extends Controller
             ],
         ];
         $menu->destroy();
-        $menu->add($buttons);
+        $menu->add(config('wechat.menu'));
         return "OK";
 
 

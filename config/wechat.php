@@ -91,9 +91,9 @@ return [
     //菜单配置
     'menu' => [
         [
-            "type" => "scancode_push",
-            "name" => "扫码",
-            "key" => "rselfmenu_0_1",
+            "type" => "scancode_waitmsg",
+            "name" => "扫码带提示",
+            "key" => "rselfmenu_0_0",
             "sub_button" => [ ],
             //"url"  => "http://qb.ibicid.com/Financing/Index/index",
         ],
