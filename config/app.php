@@ -180,6 +180,7 @@ return [
 
         //第三方服务提供者
         Overtrue\LaravelWechat\ServiceProvider::class,
+        NotificationChannels\Dayusms\DayusmsServiceProvider::class,
 
     ],
 

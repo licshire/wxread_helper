@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c9a8654744a3dfae1fe2494f7881b867",
-    "content-hash": "2a08344b29423cb07a1b28ed396cbcc9",
+    "hash": "3bb06537e12bbba46d407d1fb29eb807",
+    "content-hash": "fa45a07302ec96014e98e568393e80f6",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -408,6 +408,92 @@
                 "url"
             ],
             "time": "2017-03-20 17:10:46"
+        },
+        {
+            "name": "huami-cloud/laravel-notification-channel-dayusms",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/huami-cloud/laravel-notification-channel-dayusms.git",
+                "reference": "5ae2ec5c46c3e35041fe72580a6df7beabfcd86e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/huami-cloud/laravel-notification-channel-dayusms/5ae2ec5c46c3e35041fe72580a6df7beabfcd86e.zip",
+                "reference": "5ae2ec5c46c3e35041fe72580a6df7beabfcd86e",
+                "shasum": ""
+            },
+            "require": {
+                "huami-cloud/taobao-php-sdk": "1.0.*",
+                "illuminate/notifications": "5.3.*",
+                "illuminate/support": "5.1.*|5.2.*|5.3.*",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "~6.0",
+                "mockery/mockery": "^0.9.5",
+                "orchestra/testbench": "^3.3@dev",
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "NotificationChannels\\Dayusms\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "HFEx",
+                    "email": "hfex@huami.com",
+                    "homepage": "http://www.huami.com"
+                }
+            ],
+            "description": "Alibaba Dayu SMS Channel for Laravel 5.3",
+            "homepage": "https://www.alidayu.com/",
+            "time": "2017-02-03 09:26:11"
+        },
+        {
+            "name": "huami-cloud/taobao-php-sdk",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/huami-cloud/taobao-php-sdk.git",
+                "reference": "1f941a63ce36fa395d988ef54c8978e6a09a4e13"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/huami-cloud/taobao-php-sdk/1f941a63ce36fa395d988ef54c8978e6a09a4e13.zip",
+                "reference": "1f941a63ce36fa395d988ef54c8978e6a09a4e13",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/aliyun/",
+                    "src/top/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Taobao php sdk",
+            "homepage": "http://huami.com/",
+            "keywords": [
+                "dayu",
+                "huami",
+                "taobao",
+                "xiaomi"
+            ],
+            "time": "2017-01-21 03:45:43"
         },
         {
             "name": "jakub-onderka/php-console-color",

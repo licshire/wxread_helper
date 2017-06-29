@@ -35,4 +35,15 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    //阿里大鱼接口配置
+    'dayu' => [
+        'app_key' => env('DAYU_APP_KEY'),
+        'app_secret' => env('DAYU_APP_SECRET'),
+        'format' => 'json',
+        'log_dir' => '/tmp',
+        'sms_from' => env('DAYU_SMS_SIGN_NAME'),
+        'sms_type' => 'normal',
+        'sms_template' => env('DAYU_SMS_TEMPLATE','SMS_9655108')
+    ],
+
 ];
