@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Log;
 use EasyWeChat\Foundation\Application;
+use NotificationChannels\Dayusms\DayusmsMessage;
 
 class WechatController extends Controller
 {
@@ -59,19 +60,19 @@ class WechatController extends Controller
 
     public function demo(Request $request)
     {
-        $app = app('wechat');
-        $menu = $app->menu;
-        $buttons = [
-            [
-                "type"=>"view",
-                "name"=>"进入课堂",
-                "url"=>"http://read.no13bus.com/wechat/test"
-            ],
-        ];
-        $menu->destroy();
-        $menu->add(config('wechat.menu'));
-        return "OK";
-
+        //生成菜单
+//        $app = app('wechat');
+//        $menu = $app->menu;
+//        $buttons = [
+//            [
+//                "type"=>"view",
+//                "name"=>"进入课堂",
+//                "url"=>"http://read.no13bus.com/wechat/test"
+//            ],
+//        ];
+//        $menu->destroy();
+//        $menu->add(config('wechat.menu'));
+//        return "OK";
 
         // $wechat 则为容器中 EasyWeChat\Foundation\Application 的实例
         //$wechatServer = EasyWeChat::server(); // 服务端
