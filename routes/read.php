@@ -13,6 +13,7 @@
 
 Route::any('bookDetail', 'BookController@detail');
 Route::any('bookSubscribe', 'BookController@subscribe');
+Route::any('search', 'ReadSearchController@search');
 Route::any('searchSubmit', 'ReadSearchController@submit');
 Route::any('searchHint', 'ReadSearchController@hint');
 Route::any('searchList', 'SearchListController@searchList');

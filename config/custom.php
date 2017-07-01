@@ -20,7 +20,23 @@ return [
 //    'SMS_74510046' =>'尊敬的用户，您正在注册成为${product}用户，验证码为${code}，感谢您的支持！',
 
     //微信菜单设置
-    
+    'menu' =>[
+        [
+            "type" => "scancode_waitmsg",
+            "name" => "扫",
+            "key"  => "scan_code_key"
+        ],
+        [
+            "type" => "view",
+            "name" => "搜",
+            "url"  => env('APP_URL')."/Qianbao",
+        ],
+        [
+            "type" => "view",
+            "name" => "我",
+            "url"  => env('APP_URL')."/Qianbao/About/more",
+        ]
+    ]
 
 
 ];

@@ -24,4 +24,13 @@ class ReadSearchController extends Controller
 
     }
 
+
+    /**
+     * 临时的搜索页面
+     * @param Request $request
+     */
+    public function search(Request $request){
+        return view('search');
+    }
+
 }

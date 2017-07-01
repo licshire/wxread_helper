@@ -11,8 +11,6 @@ use App\Http\Utils\Sms;
 class WechatController extends Controller
 {
     public function serve(Request $request){
-        Log::info('request arrived.'); # 注意：Log 为 Laravel 组件，所以它记的日志去 Laravel 日志看，而不是 EasyWeChat 日志
-
         $wechat = app('wechat');
         Log::info($wechat->server->serve());
         $wechat->server->setMessageHandler(function($message){
@@ -20,12 +18,14 @@ class WechatController extends Controller
                 case 'event':
                     if($message->Event == 'scancode_waitmsg'){
                         //https://api.douban.com/v2/book/isbn/9787550266094 查书号的api
-                        Log::info(json_encode($message['ScanCodeInfo']['ScanResult']));
-                        return $message['ScanCodeInfo']['ScanResult'];
-                    }else{
-                        return '收到事件消息';
+                        $scan_msg = $message['ScanCodeInfo']['ScanResult'];
+                        if(!empty($scan_msg)){
+                            $scan_msg_arr = explode(',', $scan_msg);
+                            return $scan_msg_arr[1];
+                        }else{
+                            return '扫码失败, 请重新扫码';
+                        }
                     }
-
                     break;
                 case 'text':
                     return '收到文字消息';
@@ -51,9 +51,6 @@ class WechatController extends Controller
                     break;
             }
         });
-
-        Log::info('return response.');
-
         return $wechat->server->serve();
     }
 
