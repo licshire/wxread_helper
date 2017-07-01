@@ -14,8 +14,6 @@ class UserController extends Controller
      * @param Request $request
      */
     public function index(Request $request){
-        $json_factory = JsonFactory::getInstance();
-        
-        //return response()->json([]);
+        return 'okok';
     }
 }

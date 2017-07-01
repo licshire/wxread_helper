@@ -29,12 +29,12 @@ return [
         [
             "type" => "view",
             "name" => "搜",
-            "url"  => env('APP_URL')."/Qianbao",
+            "url"  => env('APP_URL')."/read/search",
         ],
         [
             "type" => "view",
             "name" => "我",
-            "url"  => env('APP_URL')."/Qianbao/About/more",
+            "url"  => env('APP_URL')."/read/userInfo",
         ]
     ]
 
