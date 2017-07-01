@@ -19,14 +19,6 @@
             font-weight: 400;
             color: #3CC51F
         }
-        .searchbar-result{
-            font-size: 14px;
-            margin-top: 0px;
-        }
-        .searchbar-result .weui-cell__bd {
-            padding: 2px 0 2px 20px;
-            color: #666;
-        }
 
     </style>
 </head>
@@ -51,31 +43,6 @@
         <a href="javascript:" class="weui-search-bar__cancel-btn" id="search_cancel">取消</a>
     </div>
 </div>
-
-
-<div class="weui-cells weui-cells_access search_show searchbar-result" id="search_show">
-    <div class="weui-cell">
-        <div class="weui-cell__bd weui-cell_primary">
-            <p>实时搜索文本</p>
-        </div>
-    </div>
-    <div class="weui-cell">
-        <div class="weui-cell__bd weui-cell_primary">
-            <p>实时搜索文本</p>
-        </div>
-    </div>
-    <div class="weui-cell">
-        <div class="weui-cell__bd weui-cell_primary">
-            <p>实时搜索文本</p>
-        </div>
-    </div>
-    <div class="weui-cell">
-        <div class="weui-cell__bd weui-cell_primary">
-            <p>实时搜索文本</p>
-        </div>
-    </div>
-</div>
-
 
 <div class="weui-footer weui-footer_fixed-bottom">
     <p class="weui-footer__links">
