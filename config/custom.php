@@ -10,4 +10,17 @@ return [
     //短信模板
     'SMS_8951452' =>'验证码：${vcode}。请勿透露给他人。如遇问题，可联系在线客服',
 
+
+//    'app_key' => 'LTAICjvEXLFwNeJO',
+//    'app_secret' => 'aWGmBwkRq22vNHgnDIGsIkvA0jxODn',
+//    'sms_type' => 'normal',
+//    'sms_sign_name' => '微读小助',
+//
+//    //短信模板
+//    'SMS_74510046' =>'尊敬的用户，您正在注册成为${product}用户，验证码为${code}，感谢您的支持！',
+
+    //微信菜单设置
+    
+
+
 ];
