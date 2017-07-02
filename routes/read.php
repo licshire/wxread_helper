@@ -12,6 +12,10 @@
 */
 
 Route::any('bookDetail', 'BookController@detail');
+
+Route::any('book', 'BookController@book');
+
+
 Route::any('bookSubscribe', 'BookController@subscribe');
 Route::any('search', 'ReadSearchController@search');
 Route::any('searchSubmit', 'ReadSearchController@submit');

@@ -87,15 +87,8 @@ class WechatController extends Controller
     public function menu(Request $request){
         $app = app('wechat');
         $menu = $app->menu;
-        $buttons = [
-            [
-                "type"=>"view",
-                "name"=>"进入课堂",
-                "url"=>"http://read.no13bus.com/wechat/test"
-            ],
-        ];
         $menu->destroy();
-        $menu->add(config('wechat.menu'));
+        var_dump($menu->add(config('custom.menu')));
         return "OK";
     }
 

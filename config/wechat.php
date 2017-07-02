@@ -86,26 +86,4 @@ return [
     //     "country" =>"中国",
     //     "headimgurl" => "http://wx.qlogo.cn/mmopen/C2rEUskXQiblFYMUl9O0G05Q6pKibg7V1WpHX6CIQaic824apriabJw4r6EWxziaSt5BATrlbx1GVzwW2qjUCqtYpDvIJLjKgP1ug/0",
     // ],
-
-
-    //菜单配置
-    'menu' => [
-        [
-            "type" => "scancode_waitmsg",
-            "name" => "扫码带提示",
-            "key" => "rselfmenu_0_0",
-            "sub_button" => [ ],
-            //"url"  => "http://qb.ibicid.com/Financing/Index/index",
-        ],
-        [
-            "type" => "view",
-            "name" => "搜索",
-            "url"  => "http://qb.ibicid.com/Qianbao",
-        ],
-        [
-            "type" => "view",
-            "name" => "我的",
-            "url"  => "http://qb.ibicid.com/Qianbao/About/more",
-        ]
-    ],
 ];

@@ -77,4 +77,8 @@ class BookController extends Controller
         $sub_ins->insertSubscribe($data);
         return response()->json($json_factory->all_body());
     }
+
+    public function book(Request $request){
+        return view('book', ['title'=>'我们三']);
+    }
 }
