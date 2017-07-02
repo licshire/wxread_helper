@@ -26,7 +26,7 @@
 
 <div class="container" id="container">
     <div class="page__hd">
-        <h1 class="page__title">SearchBar</h1>
+        <h1 class="page__title">微读小助</h1>
     </div>
     <div class="weui-search-bar" id="search_bar">
         <form class="weui-search-bar__form">
