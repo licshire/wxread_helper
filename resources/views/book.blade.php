@@ -82,6 +82,38 @@
         }
 
 
+        .wr_bottomEntry {
+
+            border-radius: 0;
+            z-index: 5;
+            padding: 0;
+            background-color: #fff;
+        }
+
+        .wr_bottomEntry {
+
+            position: fixed!important;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-size: 100% 1px;
+        }
+
+        .wr_bottomEntry_link {
+            display: block;
+            height: 52px;
+            line-height: 52px;
+            text-align: center;
+            font-size: 15px;
+            color: #1b88ee;
+            overflow: hidden;
+        }
+        a {
+            color: #4a7ab0;
+            text-decoration: none;
+        }
+
+
     </style>
 </head>
 <body>
@@ -109,36 +141,62 @@
     </section>
 
     <section>
-        <div id="main" style="width: 414px;height:300px;"></div>
-        <script type="text/javascript">
-            // 基于准备好的dom，初始化echarts实例
-            var myChart = echarts.init(document.getElementById('main'));
-
-            // 指定图表的配置项和数据
-            var option = {
-                title: {
-                    text: 'ECharts 入门示例'
-                },
-                tooltip: {},
-                legend: {
-                    data:['销量']
-                },
-                xAxis: {
-                    data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
-                },
-                yAxis: {},
-                series: [{
-                    name: '销量',
-                    type: 'bar',
-                    data: [5, 20, 36, 10, 10, 20]
-                }]
-            };
-
-            // 使用刚指定的配置项和数据显示图表。
-            myChart.setOption(option);
-        </script>
+        <div id="main" style="width: 400px;height:300px;"></div>
+    </section>
+    <section class="wr_bottomEntry">
+        <a href="javascript:;" class="wr_bottomEntry_link js_promo_bar" id="subscribe_btn">  订阅价格变化  </a>
     </section>
 </div>
 
 </body>
+
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: '折线图堆叠'
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: ['周一','周二','周三','周四','周五','周六','周日']
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [
+            {
+                name:'邮件营销',
+                type:'line',
+                stack: '总量',
+                data:[120, 132, 101, 134, 90, 230, 210]
+            }
+        ]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+
+
+</script>
 </html>
