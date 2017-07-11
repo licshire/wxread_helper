@@ -20,6 +20,8 @@
         .wr_bookListItem {
             position: relative;
             border: none;
+            border-radius: 0;
+            overflow: hidden;
         }
 
         .wr_bookListItem:after {
@@ -125,7 +127,7 @@
 </head>
 <body>
 
-<div class="container" id="container">
+<div class="container" id="container" style="position: relative;">
     <ul class="limitFree_list js_list">
         <li class="wr_bookListItem"><a href="javascript:" data-id="215951" class="wr_bookListItem_wrap js_book_scheme_link">
                 <div class="wr_bookCover wr_bookCover_Tiny js_book_cover" data-src="http://wfqqreader.3g.qq.com/cover/951/215951/s_215951.jpg" data-alt="北京，北京：《春风十里不如你》原著" data-loaded="true">
