@@ -13,7 +13,7 @@ class SearchListController extends Controller
      * @param Request $request
      */
     public function searchList(Request $request){
-
+        return view('searchList');
     }
 
     
