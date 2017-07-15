@@ -79,6 +79,8 @@ class BookController extends Controller
     }
 
     public function book(Request $request){
-        return view('book', ['title'=>'我们三']);
+        $app = app('wechat');
+        $js = $app->js;
+        return view('book', ['js'=>$js, 'title'=>'我们三']);
     }
 }
