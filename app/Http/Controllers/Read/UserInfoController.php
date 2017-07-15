@@ -16,4 +16,9 @@ class UserController extends Controller
     public function index(Request $request){
         return view('userInfo');
     }
+
+
+    public function userInfo(Request $request){
+        return 'userInfo';
+    }
 }

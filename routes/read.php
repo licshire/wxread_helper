@@ -10,17 +10,17 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-
-Route::any('bookDetail', 'BookController@detail');
-
-Route::any('book', 'BookController@book');
-
-
-Route::any('bookSubscribe', 'BookController@subscribe');
-Route::any('search', 'ReadSearchController@search');
-Route::any('searchSubmit', 'ReadSearchController@submit');
 Route::any('searchHint', 'ReadSearchController@hint');
-Route::any('searchList', 'SearchListController@searchList');
-Route::any('userInfo', 'UserController@index');
-//后期有个用户profile页面, 可以登出..
 
+//api接口路由
+Route::any('searchSubmit', 'ReadSearchController@submit');
+Route::any('resultList', 'SearchListController@resultList');
+Route::any('bookSubscribe', 'BookController@subscribe');
+Route::any('bookDetail', 'BookController@detail');
+Route::any('userInfo', 'UserController@userInfo');
+
+//页面路由
+Route::any('search', 'ReadSearchController@search');
+Route::any('searchList', 'SearchListController@searchList');
+Route::any('userIndex', 'UserController@index');
+Route::any('book', 'BookController@book');
