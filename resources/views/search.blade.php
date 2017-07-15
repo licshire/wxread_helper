@@ -26,12 +26,7 @@
             color: #3CC51F
         }
         .bar{
-            position: relative;
-        }
-        .bar .searchbar {
-            background-color: #efeff4;
-            border-top: 1px solid #d7d6dc;
-            border-bottom: 1px solid #d7d6dc;
+            position: static;
         }
 
     </style>
@@ -43,25 +38,8 @@
         <h1 class="page__title">微读小助</h1>
     </div>
 
-    <div class="weui-search-bar" id="search_bar">
-        <form class="weui-search-bar__form">
-            <div class="weui-search-bar__box">
-                <i class="weui-icon-search"></i>
-                <input type="search" class="weui-search-bar__input" id="search_input" placeholder="搜索" />
-                <a href="javascript:" class="weui-icon-clear" id="search_clear"></a>
-            </div>
-            <label for="search_input" class="weui-search-bar__label" id="search_text">
-                <i class="weui-icon-search"></i>
-                <span>搜索</span>
-            </label>
-        </form>
-        <a href="javascript:" class="weui-search-bar__cancel-btn" id="search_cancel">取消</a>
-    </div>
-
-
-
     <div class="bar bar-header-secondary">
-        <form action="">
+        <form id="search-form">
             <div class="searchbar">
                 <a class="searchbar-cancel">取消</a>
                 <div class="search-input">
@@ -85,10 +63,18 @@
 </div>
 
 <script type="text/javascript">
+
     $(document).ready(function(){
-        $('#search_input').on('click', function () {
-            //alert($(this).value);
-        })
+        $('#search-form').submit(function (e) {
+            var search_val = $('#search').val();
+            if(search_val){
+                location.href = '/read/searchList?q=' + search_val;
+                return false;
+            }else{
+                weui.alert('请填写搜索内容');
+                return false;
+            }
+        });
     });
 
 </script>
