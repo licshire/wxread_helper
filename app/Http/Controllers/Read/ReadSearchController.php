@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Read;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Utils\WereadSDK;
 
 class ReadSearchController extends Controller
 {
@@ -13,7 +14,9 @@ class ReadSearchController extends Controller
      * @param Request $request
      */
     public function submit(Request $request){
-
+        $q = $request->json('q');
+        return file_get_contents(dirname(__FILE__).'/read.json');
+//        return WereadSDK::getSearchList($q);
     }
 
     /**
@@ -31,6 +34,15 @@ class ReadSearchController extends Controller
      */
     public function search(Request $request){
         return view('search');
+    }
+
+
+    /**
+     * 搜索结果列表页
+     * @param Request $request
+     */
+    public function searchList(Request $request){
+        return view('searchList');
     }
 
 }

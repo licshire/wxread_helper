@@ -34,7 +34,7 @@ return [
         [
             "type" => "view",
             "name" => "我",
-            "url"  => env('APP_URL')."/read/userInfo",
+            "url"  => env('APP_URL')."/read/userIndex",
         ]
     ]
 

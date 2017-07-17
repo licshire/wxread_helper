@@ -20,7 +20,7 @@ class BookController extends Controller
     public function detail(Request $request){
         $json_factory = JsonFactory::getInstance();
         //先从数据库获取数据 如果有则直接返回 如果没有则存入数据库,再返回
-        $book_id = $request->bookid;
+        $book_id = $request->json('bookid');
         $book_ins = new Books;
         $book_info = $book_ins->getBook(['bookid'=>$book_id]);
         $sub_ins = new UserSubscribe;

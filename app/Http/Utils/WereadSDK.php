@@ -18,7 +18,7 @@ class WereadSDK
 
     const DOMAIN = 'https://i.weread.qq.com';
     const SUGGEST_URL = self::DOMAIN.'/store/suggest?count=10&keyword=%s';
-    const SEARCH_LIST_URL = self::DOMAIN.'/store/search?author=&authorVids=&count=20&fromBookId=&keyword=%s&maxIdx=20&outer=1&type=0&v=1';
+    const SEARCH_LIST_URL = self::DOMAIN.'/store/search?author=&authorVids=&count=20&fromBookId=&keyword=%s&maxIdx=0&outer=1&type=0&v=1';
     const BOOK_DETAIL = self::DOMAIN.'/book/info?bookId=%s&myzy=1';
     const GUEST_LOGIN_IN = self::DOMAIN.'/guestLogin';
     const DEVICE_ID = "c538ebb1b1a46842db813ed857f58bef";
@@ -29,8 +29,8 @@ class WereadSDK
 
     private static function postData($url){
         $rest = new RestClient;
-        $headers_string = Redis::get(self::HEADER_KEY);
-        $headers = json_decode($headers_string, true);
+        $headers_json = json_decode(self::getToken(), true);
+        $headers = array_map(function($a, $b){return $a.":".$b;}, array_keys($headers_json), $headers_json);
         $resp = $rest->post($url, null, $headers);
         if(empty($resp)){
             throw new Exception($url . "|获取信息失败");
@@ -51,7 +51,7 @@ class WereadSDK
                 throw new \Exception("获取token失败");
             }
             //headers存入到redis里面去. 失效时间为1小时
-            Redis::set(self::HEADER_KEY, $result, 3600);
+            Redis::setex(self::HEADER_KEY, 3600, $result);
         }
         return $result;
 

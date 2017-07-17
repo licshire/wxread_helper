@@ -21,6 +21,6 @@ Route::any('userInfo', 'UserController@userInfo');
 
 //页面路由
 Route::any('search', 'ReadSearchController@search');
-Route::any('searchList', 'SearchListController@searchList');
+Route::any('searchList', 'ReadSearchController@searchList');
 Route::any('userIndex', 'UserController@index');
 Route::any('book', 'BookController@book');
